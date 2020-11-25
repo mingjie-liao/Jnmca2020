@@ -34,7 +34,7 @@ set_mask!(at, mask)
 
 r = [ norm(x, 2) for x in positions(at) ]
 @printf("------------- parameter set ------------------\n")
-T = 1
+T = 0.01
 Δt = 0.001
 n = convert(Int64, T/Δt) + 1
 N = length(Ifree)
@@ -173,7 +173,12 @@ else
 end
 u = [norm([ux[i]; uy[i]],2) for i = 1:N]
 
+fig = plt.figure()
 scatter(x[Ifree], y[Ifree], c=u, cmap="coolwarm", s = 5)
+plt.colorbar()
+plt.xticks([])
+plt.yticks([])
+# plt.subplots_adjust(top=1, bottom=0, right=1, left=0, hspace=0, wspace=0)
 axis("equal")
-axis("off")
-plt.subplots_adjust(top=1, bottom=0, right=1, left=0, hspace=0, wspace=0)
+# axis("off")
+# plt.subplots_adjust(top=1, bottom=0, right=1, left=0, hspace=0, wspace=0)
