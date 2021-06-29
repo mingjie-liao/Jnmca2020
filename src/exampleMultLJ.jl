@@ -1,10 +1,10 @@
+using Jnmca2020
 using JuLIP
 using PyPlot
 
-include("multLJ.jl")
-include("geom.jl")
-
 using JuLIP, PyPlot
+
+import Jnmca2020.MultiLJ: MLJ
 
 N, L = 50, 10
 r0 = 1
@@ -12,7 +12,7 @@ ratio = 0.3
 r1 = r0*ratio
 σ0 = [2*r0 r0+r1; r0+r1 2*r1]./(2^(1/6))
 ϵ0 = [1.0 1.0; 1.0 1.0]
-calc = MultiLJ.MLJ([1 2], ϵ0, σ0)
+calc = MLJ([1 2], ϵ0, σ0)
 radii = [1, 0.3]
 
 cfg = generate_config2D(N, L, radii)
@@ -25,7 +25,7 @@ y0 = mod.(y0, L)
 
 fig, ax = plt.subplots()
 FC = ["blue", "yellow"]
-for i = 1:length(x)
+for i = 1:length(x0)
     sp = cfg.Z[i]
     fc = FC[sp]
     r = radii[sp]

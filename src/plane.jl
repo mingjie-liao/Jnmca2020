@@ -1,3 +1,4 @@
+using Jnmca2020
 using JuLIP
 using LinearAlgebra
 using Printf
@@ -5,7 +6,7 @@ using ProgressMeter
 using SparseArrays
 using PyPlot
 
-include("./utils.jl")
+# include("./utils.jl")
 
 r0 = 1
 R = 50;
@@ -34,7 +35,7 @@ set_mask!(at, mask)
 
 r = [ norm(x, 2) for x in positions(at) ]
 @printf("------------- parameter set ------------------\n")
-T = 0.01
+T = 1
 Δt = 0.001
 n = convert(Int64, T/Δt) + 1
 N = length(Ifree)

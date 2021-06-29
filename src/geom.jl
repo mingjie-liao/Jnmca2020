@@ -1,5 +1,4 @@
-# using JuLIP
-# using PyPlot
+export generate_config, generate_config2D, writeGranu, plot2d
 
 function generate_config(N, L, radii)
     X = L * rand(JVecF, N)

@@ -1,3 +1,4 @@
+export longhex_2d
 ## constructing longHex2d
 function longhex_2d(; K0 = 0, K1 = 3)
     a1 = [1; 0]
